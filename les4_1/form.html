@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .errorMsg{
+            color: red;
+            
+        }
+        .invalid{
+            border: 1px solid red;
+        }
+        .valid{
+            border: 1px solid green;
+        }
+        .button{
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#"  id="myform" >
+        <p>Укажите имя</p><br>
+        <input type="text" name="text" id="text ">
+        <div></div>
+        <p>Введиете номер телефона</p><br>
+        <input type="tel" name="tel" id="tel ">
+        <div></div>
+        <p>Введите почту</p><br>
+        <input type="email" name="email" id="email "><br>
+        <div></div>
+        <button class="button" >Отправить</button>
+    </form>
+    <script src="form.js"></script>
+    <script>
+        window.onload = () => {
+            document.getElementById('myform').addEventListener('submit', e => {
+                const valid = new Validator('myform');
+                if(!valid.valid){
+                    e.preventDefault();
+                }
+            })
+        }
+    </script>
+</body>
+</html>
